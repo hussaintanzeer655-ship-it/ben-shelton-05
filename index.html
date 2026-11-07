@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ben Shelton - Mini Cards</title>
+  <style>
+    :root{--bg:#0b0c10;--card:#141923;--acc:#66e0a5;--text:#eaf4ff}
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%}
+    body{font-family:Arial, sans-serif;background:var(--bg);color:var(--text)}
+    header{padding:1rem 1.25rem;border-bottom:1px solid rgba(255,255,255,.08);}
+    .wrap{max-width:900px;margin:0 auto;padding:1rem}
+    .row{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+    .item{background:var(--card);padding:1rem;border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+    .item h4{margin:0 0 .35rem}
+    .tag{display:inline-block;background:#1f1f2a;color:#cbd5e1;border-radius:6px;padding:.2rem .5rem;margin-right:6px;font-size:.75rem}
+    footer{text-align:center;padding:1rem 0;color:#93a5b9}
+  </style>
+</head>
+<body>
+  <header>
+    <strong>Ben Shelton</strong>
+  </header>
+  <main class="wrap">
+    <section class="row" id="cards"></section>
+  </main>
+  <footer>© Ben Shelton</footer>
+  <script>
+    const data=[
+      {t:'Analytics', tags:['CSV','Charts'], c:'#2a8f5e'},
+      {t:'Projects', tags:['Git','Docs'], c:'#2a4f8f'},
+      {t:'Notes', tags:['Markdown'], c:'#8f2a4f'},
+      {t:'Todo', tags:['UI','State'], c:'#5f8f2a'},
+      {t:'Links', tags:['Web','API'], c:'#2a6f8f'}
+    ];
+    const c=document.getElementById('cards');
+    data.forEach(it=>{const e=document.createElement('div');e.className='item';e.innerHTML=`<h4>${it.t}</h4><div>${it.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>`; c.appendChild(e);});
+  </script>
+</body>
+</html>
