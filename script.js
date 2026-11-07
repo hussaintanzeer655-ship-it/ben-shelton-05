@@ -1,0 +1,1 @@
+// simple data cards rendering
